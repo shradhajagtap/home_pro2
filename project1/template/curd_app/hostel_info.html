@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>Hostel Information</title>
+{% endblock %}
+{% block content %}
+        <h2 class="text-decoration-underline text-center mt-2 m-auto">  Hostel Form</h2>
+        <div class="border border-4 m-auto mt-3 p-2 w-50">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Submit">
+                <input type="reset" value="Clear" class="float-end">
+            </form>
+        </div>
+{% endblock %}

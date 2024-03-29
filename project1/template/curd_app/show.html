@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>Show</title>
+{% endblock %}
+{% block content %}
+        <h2 class="text-decoration-underline text-center mt-2 mb-2 "> Hostel </h2>
+        <table class="table table-success table-striped mt-3 col-10 m-auto">
+            <thead>
+                <tr>
+                    <th> ID </th>
+                    <th>Stu Name</th>
+                    <th>Fathers Name</th>
+                    <th>Mother Name</th>
+                    <th>Name Of Admitted Course</th>
+                    <th>Name Of Hostel</th>
+                    <th>Category</th>
+                    <th>Date Of Birth</th>
+                    <th>Father Phone No</th>
+                    <th>Stu Email</th>
+                    <th colspan="2" class="text-center"> Action </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for hostel in obj %}
+                    <tr>
+                        <td>{{ hostel.id  }}</td>
+                        <td>{{ hostel.stu_name }}</td>
+                        <td>{{ hostel.fathers_name }}</td>
+                        <td>{{ hostel.mother_name }}</td>
+                        <td>{{ hostel.name_of_admitted_course }}</td>
+                        <td>{{ hostel.name_of_hostel }}</td>
+                        <td>{{ hostel.category }}</td>
+                        <td>{{ hostel.date_of_birth }}</td>
+                        <td>{{ hostel.father_phone_no }}</td>
+                        <td>{{ hostel.stu_email }}</td>
+
+                        <td>
+                            <a href="{% url 'update_url'  hostel.id %}">
+                                <button class="btn btn-light col-12"><i class="bi bi-vector-pen"></i> &nbsp Update </button>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'delete_url' hostel.id %}">
+                                <button class="btn btn-danger col-12"><i class="bi bi-trash"></i> &nbsp Delete </button>
+                            </a>
+                        </td>
+
+
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+{% endblock %}
